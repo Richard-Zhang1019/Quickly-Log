@@ -1,11 +1,11 @@
 {
   "publisher": "RichardZhang",
   "name": "quickly-log",
-  "displayName": "quickly log",
+  "displayName": "Quickly Log",
   "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@8.10.5",
-  "description": "",
+  "description": "A quickly generate console.log extension in vscode",
   "author": "Richard Zhang <aaaayu1019@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Richard-Zhang1019",
@@ -17,8 +17,38 @@
   "bugs": {
     "url": "https://github.com/Richard-Zhang1019/quickly-log/issues"
   },
-  "sponsor": {
-    "url": "https://github.com/sponsors/Richard-Zhang1019"
+  "contributes": {
+    "commands": [
+      {
+        "command": "quickConsole.createConsoleLog",
+        "title": "create console.log"
+      },
+      {
+        "command": "quickConsole.clearConsoleLog",
+        "title": "clear all console.log"
+      },
+      {
+        "command": "quickConsole.toggleConsoleLog",
+        "title": "toggle all console.log's state of comment"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "quickConsole.createConsoleLog",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l"
+      },
+      {
+        "command": "quickConsole.clearConsoleLog",
+        "key": "ctrl+shift+k",
+        "mac": "cmd+shift+k"
+      },
+      {
+        "command": "quickConsole.toggleConsoleLog",
+        "key": "ctrl+shift+j",
+        "mac": "cmd+shift+j"
+      }
+    ]
   },
   "categories": [
     "Other"
