@@ -2,7 +2,7 @@
   "publisher": "RichardZhang",
   "name": "quickly-log",
   "displayName": "quickly log",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@8.10.5",
   "description": "",
