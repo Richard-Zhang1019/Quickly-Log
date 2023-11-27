@@ -1,21 +1,21 @@
 {
   "publisher": "Richard-Zhang1019",
-  "name": "quickly-console",
-  "displayName": "quickly-console",
+  "name": "quickly-log",
+  "displayName": "quickly log",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "packageManager": "pnpm@8.10.5",
   "description": "",
   "author": "Richard Zhang <aaaayu1019@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Richard-Zhang1019",
-  "homepage": "https://github.com/Richard-Zhang1019/quickly-console#readme",
+  "homepage": "https://github.com/Richard-Zhang1019/quickly-log#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Richard-Zhang1019/quickly-console"
+    "url": "https://github.com/Richard-Zhang1019/quickly-log"
   },
   "bugs": {
-    "url": "https://github.com/Richard-Zhang1019/quickly-console/issues"
+    "url": "https://github.com/Richard-Zhang1019/quickly-log/issues"
   },
   "sponsor": {
     "url": "https://github.com/sponsors/Richard-Zhang1019"
@@ -46,7 +46,6 @@
     "release": "bumpp && nr publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.1",
     "@antfu/ni": "^0.21.9",
     "@types/node": "^20.9.0",
     "@types/vscode": "^1.84.1",
