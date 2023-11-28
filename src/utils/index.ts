@@ -1,4 +1,5 @@
-import { window, type TextDocument, Position } from "vscode"
+import type { TextDocument } from "vscode"
+import { window, Position } from "vscode"
 
 export function isVariable(lineText: string): boolean {
   return (
