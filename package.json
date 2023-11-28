@@ -48,7 +48,17 @@
         "key": "ctrl+shift+j",
         "mac": "cmd+shift+j"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Quickly Log",
+      "properties": {
+        "consoleVariablesName": {
+          "description": "Whether to output a variable name",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
   },
   "categories": [
     "Other"

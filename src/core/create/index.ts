@@ -18,8 +18,8 @@ export interface Options {
   consoleVariablesName: boolean
 }
 
-const configuration = workspace.getConfiguration("quickConsole")
-const consoleVariablesName: boolean | undefined = configuration.get("format.consoleVariablesName")
+const config = workspace.getConfiguration();
+const consoleVariablesName: boolean | undefined = config.get("consoleVariablesName")
 const options: Options = {
   consoleVariablesName: !!consoleVariablesName
 }
