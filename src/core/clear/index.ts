@@ -1,19 +1,20 @@
-import * as vs from "vscode"
+import type { TextEditor } from "vscode"
+import { Selection, Position } from "vscode"
 import { getLineText, isStartWithConsole } from "../../utils"
 
-export function clear(editor: vs.TextEditor) {
+export function clear(editor: TextEditor) {
   const logsLines = getLogsLines(editor)
 
   clearUp(logsLines, editor)
 }
 
-function clearUp(logsLines: number[][], editor: vs.TextEditor) {
+function clearUp(logsLines: number[][], editor: TextEditor) {
   if (logsLines.length > 0) {
     editor.edit((editBuilder) => {
       logsLines.forEach((item) => {
-        const selection = new vs.Selection(
-          new vs.Position(item[0], 0),
-          new vs.Position(item[item.length - 1] + 1, 0)
+        const selection = new Selection(
+          new Position(item[0], 0),
+          new Position(item[item.length - 1] + 1, 0)
         )
         editBuilder.delete(selection)
       })
@@ -21,7 +22,7 @@ function clearUp(logsLines: number[][], editor: vs.TextEditor) {
   }
 }
 
-function getLogsLines(editor: vs.TextEditor): number[][] {
+function getLogsLines(editor: TextEditor): number[][] {
   const document = editor.document
   const totalLines = document.lineCount
   const logsLines: number[][] = []

@@ -1,4 +1,5 @@
-import * as vs from "vscode"
+import type { TextEditor } from "vscode"
+import { Position, Selection } from "vscode"
 import {
   getLineText,
   getStartSpace,
@@ -11,7 +12,7 @@ interface LogLine {
   start: number
 }
 
-export function toggle(editor: vs.TextEditor) {
+export function toggle(editor: TextEditor) {
   const { logsLines, commentLogsLines } = getLogsLines(editor)
 
   if (logsLines.length > commentLogsLines.length) {
@@ -21,24 +22,24 @@ export function toggle(editor: vs.TextEditor) {
   }
 }
 
-function toggleUp(logsLines: LogLine[], editor: vs.TextEditor) {
+function toggleUp(logsLines: LogLine[], editor: TextEditor) {
   if (logsLines.length > 0) {
     editor.edit((editBuilder) => {
       logsLines.forEach((item) => {
-        const logPosition = new vs.Position(item.i, item.start)
+        const logPosition = new Position(item.i, item.start)
         editBuilder.insert(logPosition, "// ")
       })
     })
   }
 }
 
-function toggleDown(commentLogsLines: LogLine[], editor: vs.TextEditor) {
+function toggleDown(commentLogsLines: LogLine[], editor: TextEditor) {
   if (commentLogsLines.length > 0) {
     editor.edit((editBuilder) => {
       commentLogsLines.forEach((item) => {
-        const selection = new vs.Selection(
-          new vs.Position(item.i, item.start),
-          new vs.Position(item.i, item.start + 2)
+        const selection = new Selection(
+          new Position(item.i, item.start),
+          new Position(item.i, item.start + 2)
         )
         editBuilder.replace(selection, "")
       })
@@ -46,7 +47,7 @@ function toggleDown(commentLogsLines: LogLine[], editor: vs.TextEditor) {
   }
 }
 
-function getLogsLines(editor: vs.TextEditor): {
+function getLogsLines(editor: TextEditor): {
   logsLines: LogLine[]
   commentLogsLines: LogLine[]
 } {
