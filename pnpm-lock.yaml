@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -15,7 +15,7 @@ importers:
         specifier: ^20.9.0
         version: 20.9.0
       '@types/vscode':
-        specifier: ^1.84.1
+        specifier: ^1.83.0
         version: 1.84.1
       '@vscode/vsce':
         specifier: ^2.22.0

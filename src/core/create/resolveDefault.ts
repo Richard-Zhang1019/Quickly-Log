@@ -6,6 +6,7 @@ import {
   getStartSpace,
   generateLog,
   isObject,
+  isInObject,
 } from "../../utils"
 import { getLineOfObjectOpenBrace } from "./getInsertLine"
 
@@ -31,6 +32,7 @@ function getLogsAndCursor(
     ? getLineTextOfObject(document, line)
     : lineText
 
+  isInObject(word, getStartSpace(text), consoleVariablesName)
   push(
     generateLog(word, getStartSpace(text), consoleVariablesName)
   )
