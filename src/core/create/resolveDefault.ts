@@ -35,7 +35,7 @@ function getLogsAndCursor(
   // isInObject(word, getStartSpace(text), consoleVariablesName)
   // 获取的line是从0开始的 此处需要 + 1 The zero-based line value.
   push(
-    generateLog(word, getStartSpace(text), options, document, line + 1)
+    generateLog(word, getStartSpace(text), options)
   )
 
   cursorPosition.line = line + 1

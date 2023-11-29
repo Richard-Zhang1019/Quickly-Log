@@ -134,12 +134,13 @@ export function generateLog(
   if (consoleVariablesName) {
     res += log
   }
+  if (consoleLineNumber) {
+    res += `${res ? ' ' : ''}at line ${lineNumber}`
+  }
   if (consoleFilename) {
+    // 兼容windows windows的文件路径是反斜杠 
     const fileNameStr = document?.fileName.replace('\\', '/').split('/')
     res += `${res ? ' ' : ''}in ${fileNameStr?.at(-2)}/${fileNameStr?.at(-1)}`
-  }
-  if (consoleLineNumber) {
-    res += `${res ? ' ' : ''}on line ${lineNumber}`
   }
   return `${space}console.log('${res}:', ${log})\n`
 }
