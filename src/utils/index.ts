@@ -123,7 +123,7 @@ export function generateLog(
   space: string,
   options: Options,
 ): string {
-  const { consoleVariablesName, consoleFilename, consoleLineNumber } = options
+  const { consoleVariablesName, consoleFilename, consoleLineNumber, consoleColon } = options
   const document = window.activeTextEditor?.document
   const lineNumber = window.activeTextEditor?.selection.active.line! + 1
 
@@ -139,10 +139,10 @@ export function generateLog(
   }
   if (consoleFilename) {
     // 兼容windows windows的文件路径是反斜杠 
-    const fileNameStr = document?.fileName.replace('\\', '/').split('/')
+    const fileNameStr = document?.fileName.replaceAll('\\', '/').split('/')
     res += `${res ? ' ' : ''}in ${fileNameStr?.at(-2)}/${fileNameStr?.at(-1)}`
   }
-  return `${space}console.log('${res}:', ${log})\n`
+  return `${space}console.log('${res}${consoleColon ? ':': ''}', ${log})\n`
 }
 
 export function isStartWithConsole(line: string) {

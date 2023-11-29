@@ -1,6 +1,6 @@
-<center>
+<div style="display: flex; justify-content: center">
   <img src="https://richardzhang.gallerycdn.vsassets.io/extensions/richardzhang/quickly-log/0.0.6/1701179475733/Microsoft.VisualStudio.Services.Icons.Default" />
-</center>
+</div>
 
 # Quickly Log
 
@@ -34,11 +34,12 @@ A quickly generate console.log extension in vscode
 | consoleVariablesName | Whether to output variable name | true |
 | consoleLineNumber | Whether to output line number | false |
 | consoleFilename | Whether to output filename | false |
+| consoleColon | Whether to output  colon at the end | true |
 
 Example: 
 
 ```ts
-console.log('Variables in Components/Card.tsx on line 17:', Variables)
+console.log('Variables at line 17 in Components/Card.tsx:', Variables)
 ```
 
 Configure according to your preferences

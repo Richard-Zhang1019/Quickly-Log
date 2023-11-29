@@ -66,6 +66,11 @@
           "description": "Whether to output line number",
           "type": "boolean",
           "default": false
+        },
+        "consoleColon": {
+          "description": "Whether to output colon",
+          "type": "boolean",
+          "default": true
         }
       }
     }
