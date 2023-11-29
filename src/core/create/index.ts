@@ -16,12 +16,18 @@ export interface LogInfo {
 
 export interface Options {
   consoleVariablesName: boolean
+  consoleFilename: boolean
+  consoleLineNumber: boolean
 }
 
 const config = workspace.getConfiguration();
 const consoleVariablesName: boolean | undefined = config.get("consoleVariablesName")
+const consoleFilename: boolean | undefined = config.get("consoleFilename")
+const consoleLineNumber: boolean | undefined = config.get("consoleLineNumber")
 const options: Options = {
-  consoleVariablesName: !!consoleVariablesName
+  consoleVariablesName: !!consoleVariablesName,
+  consoleFilename: !!consoleFilename,
+  consoleLineNumber: !!consoleLineNumber,
 }
 
 let init = false

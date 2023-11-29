@@ -1,4 +1,4 @@
-import type { TextEditor, TextDocument } from "vscode"
+import { type TextEditor, type TextDocument, window } from "vscode"
 import { LogInfo, Options } from "."
 import { createLogInfo } from "../helper"
 import {
@@ -33,8 +33,9 @@ function getLogsAndCursor(
     : lineText
 
   // isInObject(word, getStartSpace(text), consoleVariablesName)
+  // 获取的line是从0开始的 此处需要 + 1 The zero-based line value.
   push(
-    generateLog(word, getStartSpace(text), consoleVariablesName)
+    generateLog(word, getStartSpace(text), options, document, line + 1)
   )
 
   cursorPosition.line = line + 1

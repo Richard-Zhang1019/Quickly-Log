@@ -56,6 +56,16 @@
           "description": "Whether to output a variable name",
           "type": "boolean",
           "default": true
+        },
+        "consoleFilename": {
+          "description": "Whether to output filename",
+          "type": "boolean",
+          "default": false
+        },
+        "consoleLineNumber": {
+          "description": "Whether to output line number",
+          "type": "boolean",
+          "default": false
         }
       }
     }

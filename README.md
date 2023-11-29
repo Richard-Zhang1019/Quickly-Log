@@ -1,8 +1,14 @@
+<center>
+  <img src="https://richardzhang.gallerycdn.vsassets.io/extensions/richardzhang/quickly-log/0.0.6/1701179475733/Microsoft.VisualStudio.Services.Icons.Default" />
+</center>
+
 # Quickly Log
 
-<a href="https://marketplace.visualstudio.com/items?itemName=RichardZhang.quickly-log" target="__blank"><img src="https://img.shields.io/visual-studio-marketplace/v/RichardZhang.quickly-log.svg?color=eee&amp;label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version" /></a>
-
 A quickly generate console.log extension in vscode
+
+<a href="https://marketplace.visualstudio.com/items?itemName=RichardZhang.quickly-log" target="_blank">
+  <img src="https://img.shields.io/visual-studio-marketplace/v/RichardZhang.quickly-log.svg?color=eee&amp;label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version" />
+</a>
 
 ## Usage
 
@@ -20,6 +26,22 @@ A quickly generate console.log extension in vscode
 ### Quick toggle all console.log's state of comment
 
 - Press `Cmd + Shift + J` (Mac) or `Ctrl + Shift + J` (Windows).
+
+## Configuration
+
+| Property | Description | Default |
+| :-: | :-: | :-: |
+| consoleVariablesName | Whether to output variable name | true |
+| consoleLineNumber | Whether to output line number | false |
+| consoleFilename | Whether to output filename | false |
+
+Example: 
+
+```ts
+console.log('Variables in Components/Card.tsx on line 17:', Variables)
+```
+
+Configure according to your preferences
 
 ✨ Happy hacking!
 

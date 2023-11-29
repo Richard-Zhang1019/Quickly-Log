@@ -1,5 +1,6 @@
 import type { TextDocument } from "vscode"
 import { window, Position } from "vscode"
+import type { Options } from "../core/create"
 
 export function isVariable(lineText: string): boolean {
   return (
@@ -23,8 +24,9 @@ export function isObject(lineText: string): boolean {
 export const isInObject = (
   log: string,
   space: string,
-  consoleVariablesName: boolean
+  options: Options
 ) => {
+  const { } = options
   const editor = window.activeTextEditor;
   if (editor) {
     const document = editor.document;
@@ -84,7 +86,7 @@ export const isInObject = (
 
       const insertPosition = new Position(bracesEndLine + 1, 0);
       editor.edit((editBuilder) => {
-        editBuilder.insert(insertPosition, generateLog(log, space, consoleVariablesName));
+        editBuilder.insert(insertPosition, generateLog(log, space, options, document, cursorPosition.line));
       });
     }
   }
@@ -119,11 +121,25 @@ export function getStartSpace(lineText: string): string {
 export function generateLog(
   log: string,
   space: string,
-  consoleVariablesName: boolean
+  options: Options,
+  document: TextDocument,
+  lineNumber: number
 ): string {
-  return consoleVariablesName
-    ? `${space}console.log('${log}:', ${log})\n`
-    : `${space}console.log(${log})\n`
+  const { consoleVariablesName, consoleFilename, consoleLineNumber } = options
+  if (Object.values(options).filter(item => item === true).length === 0) {
+    return `${space}console.log(${log})\n`
+  }
+  let res = ''
+  if (consoleVariablesName) {
+    res += log
+  }
+  if (consoleFilename) {
+    res += `${res ? ' ': ''}in ${document.fileName.split('/').at(-2)}/${document.fileName.split('/').at(-1)}`
+  }
+  if (consoleLineNumber) {
+    res += `${res ? ' ': ''}on line ${lineNumber}`
+  }
+  return `${space}console.log('${res}:', ${log})\n`
 }
 
 export function isStartWithConsole(line: string) {
