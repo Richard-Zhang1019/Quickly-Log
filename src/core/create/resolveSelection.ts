@@ -26,13 +26,12 @@ function getLogsAndCursor(
   const lineText = getLineText(document, line)
   const words = getWordsFromSelected(selectedText, lineText)
   const { cursorPosition, push } = logInfo
-  const { consoleVariablesName } = options
 
   const space = getStartSpace(lineText)
   for (let i = 0; i < words.length - 1; i++) {
-    push(generateLog(words[i], space, consoleVariablesName))
+    push(generateLog(words[i], space, options))
   }
-  const lastLog = generateLog(words[words.length - 1], space, consoleVariablesName)
+  const lastLog = generateLog(words[words.length - 1], space, options)
   push(lastLog)
 
   cursorPosition.line = line + words.length

@@ -86,7 +86,7 @@ export const isInObject = (
 
       const insertPosition = new Position(bracesEndLine + 1, 0);
       editor.edit((editBuilder) => {
-        editBuilder.insert(insertPosition, generateLog(log, space, options, document, cursorPosition.line));
+        editBuilder.insert(insertPosition, generateLog(log, space, options));
       });
     }
   }
@@ -122,10 +122,11 @@ export function generateLog(
   log: string,
   space: string,
   options: Options,
-  document: TextDocument,
-  lineNumber: number
 ): string {
   const { consoleVariablesName, consoleFilename, consoleLineNumber } = options
+  const document = window.activeTextEditor?.document
+  const lineNumber = window.activeTextEditor?.selection.active.line! + 1
+
   if (Object.values(options).filter(item => item === true).length === 0) {
     return `${space}console.log(${log})\n`
   }
@@ -134,10 +135,10 @@ export function generateLog(
     res += log
   }
   if (consoleFilename) {
-    res += `${res ? ' ': ''}in ${document.fileName.split('/').at(-2)}/${document.fileName.split('/').at(-1)}`
+    res += `${res ? ' ' : ''}in ${document?.fileName.split('/').at(-2)}/${document?.fileName.split('/').at(-1)}`
   }
   if (consoleLineNumber) {
-    res += `${res ? ' ': ''}on line ${lineNumber}`
+    res += `${res ? ' ' : ''}on line ${lineNumber}`
   }
   return `${space}console.log('${res}:', ${log})\n`
 }
