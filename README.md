@@ -30,7 +30,7 @@ A quickly generate console.log extension in vscode
 ## Configuration
 
 | Property | Description | Default |
-| :-: | :-: | :-: |
+| :- | :- | :-: |
 | consoleVariablesName | Whether to output variable name | true |
 | consoleLineNumber | Whether to output line number | false |
 | consoleFilename | Whether to output filename | false |
@@ -42,7 +42,7 @@ Example:
 console.log('Variables at line 17 in Components/Card.tsx:', Variables)
 ```
 
-Configure according to your preferences
+You can go to the Settings page and change the configuration to your preferences
 
 ✨ Happy hacking!
 
