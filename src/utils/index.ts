@@ -135,7 +135,8 @@ export function generateLog(
     res += log
   }
   if (consoleFilename) {
-    res += `${res ? ' ' : ''}in ${document?.fileName.split('/').at(-2)}/${document?.fileName.split('/').at(-1)}`
+    const fileNameStr = document?.fileName.replace('\\', '/').split('/')
+    res += `${res ? ' ' : ''}in ${fileNameStr?.at(-2)}/${fileNameStr?.at(-1)}`
   }
   if (consoleLineNumber) {
     res += `${res ? ' ' : ''}on line ${lineNumber}`
