@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center">
+<div align="center">
   <img src="https://richardzhang.gallerycdn.vsassets.io/extensions/richardzhang/quickly-log/0.0.6/1701179475733/Microsoft.VisualStudio.Services.Icons.Default" />
 </div>
 
