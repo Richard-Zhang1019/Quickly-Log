@@ -39,7 +39,7 @@ function toggleDown(commentLogsLines: LogLine[], editor: TextEditor) {
       commentLogsLines.forEach((item) => {
         const selection = new Selection(
           new Position(item.i, item.start),
-          new Position(item.i, item.start + 2)
+          new Position(item.i, item.start + 3)
         )
         editBuilder.replace(selection, "")
       })
